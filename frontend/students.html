@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List | Student Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <h2>StudentMS</h2>
+
+        <ul>
+            <li><a href="dashboard.html">🏠 Dashboard</a></li>
+            <li><a href="add-student.html">➕ Add Student</a></li>
+            <li><a href="students.html">👨‍🎓 Student List</a></li>
+            <li><a href="index.html">🚪 Logout</a></li>
+        </ul>
+
+    </div>
+
+    <!-- Main -->
+
+    <div class="main">
+
+        <h1>Student List</h1>
+
+        <!-- Search Box -->
+
+        <input
+         type="text"
+         id="searchInput"
+        class="search-box"
+        placeholder="Search Student...">
+        <!-- Student Table -->
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+
+            <tr>
+                <td>101</td>
+                <td>Rahul Sharma</td>
+                <td>B.Tech</td>
+                <td>rahul@gmail.com</td>
+                <td>9876543210</td>
+
+                <td>
+                    <button class="view-btn">View</button>
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>102</td>
+                <td>Priya Verma</td>
+                <td>BCA</td>
+                <td>priya@gmail.com</td>
+                <td>9876501234</td>
+
+                <td>
+                    <button class="view-btn">View</button>
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>103</td>
+                <td>Aman Singh</td>
+                <td>MCA</td>
+                <td>aman@gmail.com</td>
+                <td>9876512345</td>
+
+                <td>
+                    <button class="view-btn">View</button>
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+# Optional: Render "Blueprint" file. If this repo is connected to Render
+# via a Blueprint, this file lets Render create the web service
+# automatically instead of configuring it by hand in the dashboard.
+# (The deployment guide covers the manual dashboard steps too, since
+# that's the more common path for a first deployment.)
+services:
+  - type: web
+    name: student-management-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /health
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
+      - key: NODE_ENV
+        value: production

@@ -1,0 +1,204 @@
+PASS tests/unit/studentController.test.js
+  getAll
+    ✓ returns paginated data with default page/limit (3 ms)
+    ✓ forwards unexpected errors to next() (1 ms)
+  getOne
+    ✓ returns 400 for a malformed id (1 ms)
+    ✓ returns 404 when no student is found (1 ms)
+    ✓ returns the student when found
+  create
+    ✓ returns 400 when required fields are missing
+    ✓ creates a student and returns 201 on valid input (1 ms)
+    ✓ returns 409 on duplicate email (E11000)
+    ✓ returns 400 on mongoose ValidationError
+  update
+    ✓ returns 400 for a malformed id (1 ms)
+    ✓ returns 404 when the student does not exist
+    ✓ updates and returns the student on success
+  remove
+    ✓ returns 400 for a malformed id
+    ✓ returns 404 when nothing was deleted
+    ✓ deletes and confirms on success
+
+  console.error
+    SyntaxError: Expected property name or '}' in JSON at position 2 (line 1 column 3)
+        at JSON.parse (<anonymous>)
+        at parse (/home/claude/sms-project/backend/node_modules/body-parser/lib/types/json.js:96:19)
+        at /home/claude/sms-project/backend/node_modules/body-parser/lib/read.js:128:18
+        at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+        at invokeCallback (/home/claude/sms-project/backend/node_modules/raw-body/index.js:238:16)
+        at done (/home/claude/sms-project/backend/node_modules/raw-body/index.js:227:7)
+        at IncomingMessage.onEnd (/home/claude/sms-project/backend/node_modules/raw-body/index.js:287:7)
+        at IncomingMessage.emit (node:events:519:28)
+        at endReadableNT (node:internal/streams/readable:1698:12)
+        at processTicksAndRejections (node:internal/process/task_queues:89:21)
+
+      3 | // to the client.
+      4 | function errorHandler(err, req, res, next) { // eslint-disable-line no-unused-vars
+    > 5 |   console.error(err.stack || err.message);
+        |           ^
+      6 |
+      7 |   if (err.name === 'CastError') {
+      8 |     return res.status(400).json({ message: 'Invalid id format' });
+
+      at error (middleware/errorHandler.js:5:11)
+      at Layer.handle_error (node_modules/express/lib/router/layer.js:71:5)
+      at trim_prefix (node_modules/express/lib/router/index.js:326:13)
+      at node_modules/express/lib/router/index.js:286:9
+      at Function.process_params (node_modules/express/lib/router/index.js:346:12)
+      at next (node_modules/express/lib/router/index.js:280:10)
+      at Layer.handle_error (node_modules/express/lib/router/layer.js:67:12)
+      at trim_prefix (node_modules/express/lib/router/index.js:326:13)
+      at node_modules/express/lib/router/index.js:286:9
+      at Function.process_params (node_modules/express/lib/router/index.js:346:12)
+      at next (node_modules/express/lib/router/index.js:280:10)
+      at Layer.handle_error (node_modules/express/lib/router/layer.js:67:12)
+      at trim_prefix (node_modules/express/lib/router/index.js:326:13)
+      at node_modules/express/lib/router/index.js:286:9
+      at Function.process_params (node_modules/express/lib/router/index.js:346:12)
+      at next (node_modules/express/lib/router/index.js:280:10)
+      at node_modules/body-parser/lib/read.js:130:7
+      at invokeCallback (node_modules/raw-body/index.js:238:16)
+      at done (node_modules/raw-body/index.js:227:7)
+      at IncomingMessage.onEnd (node_modules/raw-body/index.js:287:7)
+
+  console.error
+    Error: simulated DB outage
+        at Function.<anonymous> (/home/claude/sms-project/backend/tests/integration/studentRoutes.mocked.test.js:67:11)
+        at /home/claude/sms-project/backend/node_modules/jest-mock/build/index.js:397:39
+        at Function.<anonymous> (/home/claude/sms-project/backend/node_modules/jest-mock/build/index.js:404:13)
+        at Function.mockConstructor (/home/claude/sms-project/backend/node_modules/jest-mock/build/index.js:148:19)
+        at Function.find (eval at _createMockFunction (/home/claude/sms-project/backend/node_modules/jest-mock/build/index.js:566:31), <anonymous>:3:50)
+        at find (/home/claude/sms-project/backend/controllers/studentController.js:16:15)
+        at Layer.handle [as handle_request] (/home/claude/sms-project/backend/node_modules/express/lib/router/layer.js:95:5)
+        at next (/home/claude/sms-project/backend/node_modules/express/lib/router/route.js:149:13)
+        at Route.dispatch (/home/claude/sms-project/backend/node_modules/express/lib/router/route.js:119:3)
+        at Layer.handle [as handle_request] (/home/claude/sms-project/backend/node_modules/express/lib/router/layer.js:95:5)
+        at /home/claude/sms-project/backend/node_modules/express/lib/router/index.js:284:15
+        at Function.process_params (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:346:12)
+        at next (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:280:10)
+        at Function.handle (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:175:3)
+        at router (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:47:12)
+        at Layer.handle [as handle_request] (/home/claude/sms-project/backend/node_modules/express/lib/router/layer.js:95:5)
+        at trim_prefix (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:328:13)
+        at /home/claude/sms-project/backend/node_modules/express/lib/router/index.js:286:9
+        at Function.process_params (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:346:12)
+        at next (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:280:10)
+        at jsonParser (/home/claude/sms-project/backend/node_modules/body-parser/lib/types/json.js:117:7)
+        at Layer.handle [as handle_request] (/home/claude/sms-project/backend/node_modules/express/lib/router/layer.js:95:5)
+        at trim_prefix (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:328:13)
+        at /home/claude/sms-project/backend/node_modules/express/lib/router/index.js:286:9
+        at Function.process_params (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:346:12)
+        at next (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:280:10)
+        at cors (/home/claude/sms-project/backend/node_modules/cors/lib/index.js:188:7)
+        at /home/claude/sms-project/backend/node_modules/cors/lib/index.js:224:17
+        at originCallback (/home/claude/sms-project/backend/node_modules/cors/lib/index.js:214:15)
+        at /home/claude/sms-project/backend/node_modules/cors/lib/index.js:219:13
+        at optionsCallback (/home/claude/sms-project/backend/node_modules/cors/lib/index.js:199:9)
+        at corsMiddleware (/home/claude/sms-project/backend/node_modules/cors/lib/index.js:204:7)
+        at Layer.handle [as handle_request] (/home/claude/sms-project/backend/node_modules/express/lib/router/layer.js:95:5)
+        at trim_prefix (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:328:13)
+        at /home/claude/sms-project/backend/node_modules/express/lib/router/index.js:286:9
+        at Function.process_params (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:346:12)
+        at next (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:280:10)
+        at expressInit (/home/claude/sms-project/backend/node_modules/express/lib/middleware/init.js:40:5)
+        at Layer.handle [as handle_request] (/home/claude/sms-project/backend/node_modules/express/lib/router/layer.js:95:5)
+        at trim_prefix (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:328:13)
+        at /home/claude/sms-project/backend/node_modules/express/lib/router/index.js:286:9
+        at Function.process_params (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:346:12)
+        at next (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:280:10)
+        at query (/home/claude/sms-project/backend/node_modules/express/lib/middleware/query.js:45:5)
+        at Layer.handle [as handle_request] (/home/claude/sms-project/backend/node_modules/express/lib/router/layer.js:95:5)
+        at trim_prefix (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:328:13)
+        at /home/claude/sms-project/backend/node_modules/express/lib/router/index.js:286:9
+        at Function.process_params (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:346:12)
+        at next (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:280:10)
+        at Function.handle (/home/claude/sms-project/backend/node_modules/express/lib/router/index.js:175:3)
+        at Function.handle (/home/claude/sms-project/backend/node_modules/express/lib/application.js:181:10)
+        at Server.app (/home/claude/sms-project/backend/node_modules/express/lib/express.js:39:9)
+        at Server.emit (node:events:519:28)
+        at parserOnIncoming (node:_http_server:1186:12)
+        at HTTPParser.parserOnHeadersComplete (node:_http_common:125:17)
+
+      3 | // to the client.
+      4 | function errorHandler(err, req, res, next) { // eslint-disable-line no-unused-vars
+    > 5 |   console.error(err.stack || err.message);
+        |           ^
+      6 |
+      7 |   if (err.name === 'CastError') {
+      8 |     return res.status(400).json({ message: 'Invalid id format' });
+
+      at error (middleware/errorHandler.js:5:11)
+      at Layer.handle_error (node_modules/express/lib/router/layer.js:71:5)
+      at trim_prefix (node_modules/express/lib/router/index.js:326:13)
+      at node_modules/express/lib/router/index.js:286:9
+      at Function.process_params (node_modules/express/lib/router/index.js:346:12)
+      at next (node_modules/express/lib/router/index.js:280:10)
+      at Layer.handle_error (node_modules/express/lib/router/layer.js:67:12)
+      at trim_prefix (node_modules/express/lib/router/index.js:326:13)
+      at node_modules/express/lib/router/index.js:286:9
+      at Function.process_params (node_modules/express/lib/router/index.js:346:12)
+      at next (node_modules/express/lib/router/index.js:280:10)
+      at node_modules/express/lib/router/index.js:646:15
+      at next (node_modules/express/lib/router/index.js:265:14)
+      at next (node_modules/express/lib/router/route.js:141:14)
+      at next (controllers/studentController.js:31:5)
+      at Layer.handle [as handle_request] (node_modules/express/lib/router/layer.js:95:5)
+      at next (node_modules/express/lib/router/route.js:149:13)
+      at Route.dispatch (node_modules/express/lib/router/route.js:119:3)
+      at Layer.handle [as handle_request] (node_modules/express/lib/router/layer.js:95:5)
+      at node_modules/express/lib/router/index.js:284:15
+      at Function.process_params (node_modules/express/lib/router/index.js:346:12)
+      at next (node_modules/express/lib/router/index.js:280:10)
+      at Function.handle (node_modules/express/lib/router/index.js:175:3)
+      at router (node_modules/express/lib/router/index.js:47:12)
+      at Layer.handle [as handle_request] (node_modules/express/lib/router/layer.js:95:5)
+      at trim_prefix (node_modules/express/lib/router/index.js:328:13)
+      at node_modules/express/lib/router/index.js:286:9
+      at Function.process_params (node_modules/express/lib/router/index.js:346:12)
+      at next (node_modules/express/lib/router/index.js:280:10)
+      at jsonParser (node_modules/body-parser/lib/types/json.js:117:7)
+      at Layer.handle [as handle_request] (node_modules/express/lib/router/layer.js:95:5)
+      at trim_prefix (node_modules/express/lib/router/index.js:328:13)
+      at node_modules/express/lib/router/index.js:286:9
+      at Function.process_params (node_modules/express/lib/router/index.js:346:12)
+      at next (node_modules/express/lib/router/index.js:280:10)
+      at cors (node_modules/cors/lib/index.js:188:7)
+      at node_modules/cors/lib/index.js:224:17
+      at originCallback (node_modules/cors/lib/index.js:214:15)
+      at node_modules/cors/lib/index.js:219:13
+      at optionsCallback (node_modules/cors/lib/index.js:199:9)
+      at corsMiddleware (node_modules/cors/lib/index.js:204:7)
+      at Layer.handle [as handle_request] (node_modules/express/lib/router/layer.js:95:5)
+      at trim_prefix (node_modules/express/lib/router/index.js:328:13)
+      at node_modules/express/lib/router/index.js:286:9
+      at Function.process_params (node_modules/express/lib/router/index.js:346:12)
+      at next (node_modules/express/lib/router/index.js:280:10)
+      at expressInit (node_modules/express/lib/middleware/init.js:40:5)
+      at Layer.handle [as handle_request] (node_modules/express/lib/router/layer.js:95:5)
+      at trim_prefix (node_modules/express/lib/router/index.js:328:13)
+      at node_modules/express/lib/router/index.js:286:9
+      at Function.process_params (node_modules/express/lib/router/index.js:346:12)
+      at next (node_modules/express/lib/router/index.js:280:10)
+      at query (node_modules/express/lib/middleware/query.js:45:5)
+      at Layer.handle [as handle_request] (node_modules/express/lib/router/layer.js:95:5)
+      at trim_prefix (node_modules/express/lib/router/index.js:328:13)
+      at node_modules/express/lib/router/index.js:286:9
+      at Function.process_params (node_modules/express/lib/router/index.js:346:12)
+      at next (node_modules/express/lib/router/index.js:280:10)
+      at Function.handle (node_modules/express/lib/router/index.js:175:3)
+      at Function.handle (node_modules/express/lib/application.js:181:10)
+      at Server.app (node_modules/express/lib/express.js:39:9)
+
+PASS tests/integration/studentRoutes.mocked.test.js
+  ✓ GET / responds with a health message (23 ms)
+  ✓ GET /api/students returns JSON shaped as { data, page, total } (4 ms)
+  ✓ POST /api/students with a bad JSON body is rejected cleanly, not with a crash (31 ms)
+  ✓ an unmatched route returns the JSON 404 handler, not the Express default HTML page (3 ms)
+  ✓ a thrown error from the model reaches the centralized error handler as JSON (24 ms)
+
+Test Suites: 2 passed, 2 total
+Tests:       20 passed, 20 total
+Snapshots:   0 total
+Time:        1.363 s, estimated 2 s
+Ran all test suites matching /tests\/unit|tests\/integration\/studentRoutes.mocked.test.js/i.

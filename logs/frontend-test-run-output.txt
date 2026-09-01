@@ -1,0 +1,23 @@
+(node:931) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS tests/script.test.js
+  getStudents
+    ✓ renders one .student card per item returned in the paginated response (22 ms)
+    ✓ still works if the backend returns a bare array (backward compatibility) (6 ms)
+    ✓ calls the API_URL with the correct /api/students path (4 ms)
+    ✓ does not throw when fetch rejects (server down) (4 ms)
+  add student form submit
+    ✓ shows a success alert and resets the form on a successful POST (4 ms)
+    ✓ shows the server error message on a duplicate-email (409) response instead of crashing (4 ms)
+    ✓ alerts "Server connection failed" when fetch itself throws (2 ms)
+  deleteStudent
+    ✓ sends a DELETE request to the correct URL (3 ms)
+  updateStudent
+    ✓ sends a PUT request with the new course (4 ms)
+    ✓ does nothing if no new course is provided (4 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       10 passed, 10 total
+Snapshots:   0 total
+Time:        0.531 s, estimated 1 s
+Ran all test suites.
