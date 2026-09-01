@@ -1,8 +1,7 @@
 // Bug fixed: backend mounts routes at /api/students (see backend/app.js),
 // but this used to point at /students with no /api prefix and the wrong
 // port, which is exactly why "Server connection failed" was showing up.
-const API_URL = "http://localhost:5000/api/students";
-
+const API_URL = "https://student-management-system-noa0.onrender.com/api/students";
 const studentForm = document.getElementById("studentForm");
 const studentList = document.getElementById("studentList");
 
